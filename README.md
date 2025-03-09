@@ -1,50 +1,93 @@
-# Welcome to your Expo app 👋
+# FratRank 📱🎉
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+**Real-Time Fraternity Party Rating App for Students & Greek Life**
 
-## Get started
+FratRank is a mobile app that allows students to view and rate fraternity parties happening on their campus in real time. The app helps students find the most popular, active, and fun parties each night—based entirely on feedback and ratings from actual attendees.
 
-1. Install dependencies
+---
 
-   ```bash
-   npm install
-   ```
+## 🚀 Project Overview
 
-2. Start the app
+- Campus-based platform for students to discover and rate fraternity parties.
+- Live party ratings submitted by students determine frat rankings for the night.
+- Ratings are **day-specific**, so rankings reset daily to reflect current activity.
+- Rankings update in **real time** as new reviews come in throughout the night.
 
-   ```bash
-    npx expo start
-   ```
+---
 
-In the output, you'll find options to open the app in a
+## 🧠 Key Features
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- 🔐 User Authentication (via AWS Cognito)
+- 🏫 Campus Selection Flow (students choose campus before viewing parties)
+- 🏛 Fraternity Listings (campus-specific frat lists)
+- 🎉 Party Listings (frats post parties for specific days)
+- ⭐ Live Rating System (students rate parties in real time)
+- 📈 Dynamic Daily Rankings (updated based on live user feedback)
+- 🔄 Real-Time Updates (via WebSockets)
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+---
 
-## Get a fresh project
+## ⚙️ Tech Stack
 
-When you're ready, run:
+| Layer             | Technology                       |
+| ----------------- | -------------------------------- |
+| Mobile App        | React Native (Expo)              |
+| Backend API       | Node.js + Express                |
+| Database          | PostgreSQL (AWS RDS)             |
+| Authentication    | AWS Cognito                      |
+| Realtime Updates  | WebSockets (Socket.IO)           |
+| Caching/Queue     | Redis (local or AWS ElastiCache) |
+| Hosting (Backend) | AWS EC2 / Elastic Beanstalk      |
 
-```bash
-npm run reset-project
+---
+
+## 📂 Project Structure
+
+```
+/my-frat-party-app
+├── /app             # React Native mobile app (Expo)
+├── /server          # Node.js backend (Express API)
+├── /db              # PostgreSQL schema, seeds, migrations
+├── app.config.js    # Expo configuration
+├── package.json     # Root dependencies
+└── README.md
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## 🛠 Getting Started
 
-To learn more about developing your project with Expo, look at the following resources:
+### 1. Clone the Repository
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+git clone https://github.com/yourusername/fratrank.git
+cd fratrank
+```
 
-## Join the community
+### 2. Setup Frontend
 
-Join our community of developers creating universal apps.
+```bash
+cd app
+npm install
+npx expo start
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### 3. Setup Backend
+
+```bash
+cd ../server
+npm install
+npm run dev
+```
+
+### 4. Setup PostgreSQL & Redis
+
+- Create a PostgreSQL database.
+- Create required tables using /db/schema.sql or ORM models.
+- Start a Redis instance locally or connect to AWS ElastiCache.
+
+---
+
+## 📝 License
+
+MIT License
